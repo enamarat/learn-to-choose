@@ -6,6 +6,18 @@ body {
 header {
     background-image: linear-gradient(burlywood, black);
     margin-bottom: 0.2em;
+    position: relative;
+}
+
+#language {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+}
+
+#language:hover {
+    cursor: pointer;
+    color: white;
 }
 
 main {

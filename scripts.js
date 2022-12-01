@@ -1,4 +1,5 @@
-const questionsArr = ['nature', 'prepositions', 'test'];
+const questionsArr = ['nature', 'test1', 'test2', 'test3'];
+const questionsArrRus = ['природа', 'тест1', 'тест2', 'тест3'];
 const questions = {
     nature: [
         {   
@@ -16,8 +17,8 @@ const questions = {
                 "очень громкий шум в небе",
                 "вода, падающая с неба"
             ],
-            instruction: 'Choose the right answer',
-            instructionRussian: 'Выбери правильный ответ',
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
             rightAnswerIndex: 1
         },
         {
@@ -35,8 +36,8 @@ const questions = {
                 "вода, падающая с неба",
                 "очень громкий шум в небе"
             ],
-            instruction: 'Choose the right answer',
-            instructionRussian: 'Выбери правильный ответ',
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
             rightAnswerIndex: 2
         },
         {
@@ -54,8 +55,8 @@ const questions = {
                 "дождь",
                 "ураган"
             ],
-            instruction: 'Choose the right answer',
-            instructionRussian: 'Выбери правильный ответ',
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
             rightAnswerIndex: 3
         },
         {
@@ -73,8 +74,8 @@ const questions = {
                 "молния",
                 "ветер"
             ],
-            instruction: 'Choose the right answer',
-            instructionRussian: 'Выбери правильный ответ',
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
             rightAnswerIndex: 2
         },
         {
@@ -92,15 +93,18 @@ const questions = {
                 "дождь",
                 "молния",
             ],
-            instruction: 'Choose the right answer',
-            instructionRussian: 'Выбери правильный ответ',
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
             rightAnswerIndex: 0
         }
     ],
-    prepositions: [
+    test1: [
         {}
     ],
-    test: [
+    test2: [
+        {}
+    ],
+    test3: [
         {}
     ]
 };
@@ -111,24 +115,33 @@ const question = document.querySelector('#question');
 const answers = document.querySelector('#answers');
 const message = document.querySelector('#message');
 const instruction = document.querySelector('#instruction');
+const language = document.querySelector('#language');
 let chosenSection = null;
 let count = 0;
 let chosenAnswer = 0;
 let rightAnswerIsGiven = false;
+let chosenLanguage = 'English';
 
 
 const showSections = () => {
-    for (let i = 0; i < questionsArr.length; i+=2) {
-        if (i+1 < questionsArr.length-1) {
+    let sectionNames = null;
+    if (chosenLanguage == 'English') {
+        sectionNames = questionsArr;
+    } else if (chosenLanguage == 'Russian') {
+        sectionNames = questionsArrRus;
+    }
+
+    for (let i = 0; i < sectionNames.length; i+=2) {
+        if (i+1 < sectionNames.length) {
             sections.innerHTML += `
             <div class='row'>     
-                <div class='column'> <button class='sectionButton'>${questionsArr[i]}</button> </div>
-                <div class='column'> <button class='sectionButton'>${questionsArr[i+1]}</button> </div>
+                <div class='column'> <button class='sectionButton'>${sectionNames[i]}</button> </div>
+                <div class='column'> <button class='sectionButton'>${sectionNames[i+1]}</button> </div>
             </div>`;  
         } else {
             sections.innerHTML += `
             <div class='row'>     
-                <div class='column'> <button class='sectionButton'>${questionsArr[i]}</button> </div>
+                <div class='column'> <button class='sectionButton'>${sectionNames[i]}</button> </div>
             </div>`;  
         }
     }
@@ -136,12 +149,19 @@ const showSections = () => {
 
 const showPossibleAnswers = () => {
     let result = '';
+    let answersToCheck = null;
 
-    for (let i = 0; i < questions[chosenSection][count].answers.length; i++) {
+    if (chosenLanguage == 'English') {
+        answersToCheck = questions[chosenSection][count].answers;
+    } else if (chosenLanguage == 'Russian') {
+        answersToCheck = questions[chosenSection][count].answersRussian;
+    }
+
+    for (let i = 0; i < answersToCheck.length; i++) {
         if (i == 0) {
-            result += `<button class='possibleAnswer selectedAnswer'>${questions[chosenSection][count].answers[i]}</button>`;
+            result += `<button class='possibleAnswer selectedAnswer'>${answersToCheck[i]}</button>`;
         } else {
-            result += `<button class='possibleAnswer'>${questions[chosenSection][count].answers[i]}</button>`;
+            result += `<button class='possibleAnswer'>${answersToCheck[i]}</button>`;
         }
     }
 
@@ -150,12 +170,21 @@ const showPossibleAnswers = () => {
 
 const openExercise = (event) => {
     if (event.target.tagName == 'BUTTON') {
-        chosenSection = event.target.textContent;
+        if (chosenLanguage == 'English') {
+            chosenSection = event.target.textContent;
+            sectionTitle.textContent = chosenSection.toUpperCase();
+            instruction.textContent = questions[chosenSection][count].instruction;
+            question.textContent = questions[chosenSection][count].question;
+        } else if (chosenLanguage == 'Russian') {
+            let pos = questionsArrRus.indexOf(event.target.textContent);
+            chosenSection = questionsArr[pos];
+            sectionTitle.textContent = questionsArrRus[pos].toUpperCase();
+            instruction.textContent = questions[chosenSection][count].instructionRussian;
+            question.textContent = questions[chosenSection][count].questionRussian;
+        }
+
         sections.className = 'hidden';
         exercise.className = 'verticalContainer';
-        sectionTitle.textContent = chosenSection.toUpperCase();
-        instruction.textContent = questions[chosenSection][count].instruction;
-        question.textContent = questions[chosenSection][count].question;
         showPossibleAnswers();
     }
 }
@@ -201,11 +230,20 @@ const checkAnswer = (event) => {
         const possibleAnswers = document.querySelectorAll('.possibleAnswer');
 
         if (chosenAnswer == questions[chosenSection][count].rightAnswerIndex) {
-            message.textContent = 'Good job! Press "space" to change question';
+            if (chosenLanguage == 'English') {
+                message.textContent = 'Good job! Press "space" to change question.';
+            } else if (chosenLanguage == 'Russian') {
+                message.textContent = 'Молодец! Нажми "пробел", чтобы поменять вопрос.';
+            }
+            
             possibleAnswers[chosenAnswer].className = 'possibleAnswer rightAnswer';
             rightAnswerIsGiven = true;
         } else {
-            message.textContent = 'Try again!';
+            if (chosenLanguage == 'English') {
+                message.textContent = 'Try again!';
+            } else if (chosenLanguage == 'Russian') {
+                message.textContent = 'Попробуй снова!';
+            }
             possibleAnswers[chosenAnswer].className = 'possibleAnswer selectedWrongAnswer';
         }
     }
@@ -216,8 +254,14 @@ const changeQuestion = (event) => {
         if (count < questions[chosenSection].length-1) {
             count++;
             chosenAnswer = 0;
-            instruction.textContent = questions[chosenSection][count].instruction;
-            question.textContent = questions[chosenSection][count].question;
+            if (chosenLanguage == 'English') {
+                instruction.textContent = questions[chosenSection][count].instruction;
+                question.textContent = questions[chosenSection][count].question;
+            } else if (chosenLanguage == 'Russian') {
+                instruction.textContent = questions[chosenSection][count].instructionRussian;
+                question.textContent = questions[chosenSection][count].questionRussian;
+            }
+            
             message.textContent = '';
             rightAnswerIsGiven = false;
             showPossibleAnswers();
@@ -241,9 +285,25 @@ const returnToSections = () => {
     rightAnswerIsGiven = false;
 }
 
+const changeLanguage = () => {
+    if (chosenLanguage == 'English') {
+        chosenLanguage = "Russian";
+        language.textContent = 'Eng';
+    } else {
+        chosenLanguage = "English";
+        language.textContent = 'Rus';
+    }
+
+    if (chosenSection == null) {
+        sections.innerHTML = '';
+        showSections();
+    }
+}
+
 window.addEventListener('DOMContentLoaded', showSections);
 document.querySelector('#sections').addEventListener('click', openExercise);
 document.querySelector('#exitButton').addEventListener('click', returnToSections);
 window.addEventListener('keydown', chooseAnswerWithArrows);
 window.addEventListener('keydown', checkAnswer);
 window.addEventListener('keydown', changeQuestion);
+document.querySelector('#language').addEventListener('click', changeLanguage);
