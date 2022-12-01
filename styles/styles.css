@@ -1,0 +1,135 @@
+/* layout */
+body {
+    background-color: blanchedalmond;
+}
+
+header {
+    background-image: linear-gradient(burlywood, black);
+    margin-bottom: 0.2em;
+}
+
+main {
+    text-align: center;
+}
+
+.verticalContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+#answers {
+    display: flex;
+    flex-direction: column;
+}
+
+/* typography */
+* {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+h1 {
+    font-size: 3em;
+    font-weight: bold;
+    color: rgba(247, 208, 193, 0.911);
+    padding: 0.5em;
+}
+
+h2 {
+    font-size: 2em;
+    font-weight: bold;
+    color: rgba(156, 63, 26, 0.911);
+    margin-top: 0.2em;
+}
+
+#question {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 0.2em
+}
+
+#instruction {
+    font-size: 1em;
+    margin: 0.25em;
+    color: darkblue;
+}
+
+#question {
+    margin-top: 0.5em;
+}
+
+#message {
+    font-size: 2em;
+    margin: 0.5em;
+    color: darkblue;
+}
+
+/* buttons */
+button {
+    color: orange;
+    background-color: white;
+    border: 2px solid orange;
+    border-radius: 0% 10%;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin: 0.2em;
+}
+
+button:hover {
+    cursor: pointer;
+    color: white;
+    background-color: orange;
+}
+
+.sectionButton {
+    width: 7em;
+}
+
+.selectedAnswer {
+    border: 2px solid darkblue;
+    color: darkblue;
+}
+
+#exitButton {
+    border: 2px solid red;
+    color: red;
+    margin-top: 2em;
+}
+
+#exitButton:hover {
+    color: white;
+    background-color: red;
+}
+
+.rightAnswer {
+    color: white;
+    background-color: springgreen;
+    border: 2px solid springgreen;
+}
+
+.wrongAnswer {
+    color: white;
+    background-color: red;
+    border: 2px solid red;
+}
+
+.selectedWrongAnswer {
+    border: 2px solid darkblue;
+    background-color: red;
+    color: darkblue;
+}
