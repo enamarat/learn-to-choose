@@ -19,7 +19,9 @@ const questions = {
             ],
             instruction: 'Choose the right answer.',
             instructionRussian: 'Выбери правильный ответ.',
-            rightAnswerIndex: 1
+            rightAnswerIndex: 1,
+            hint: "Wind is a movement of air.",
+            hintRussian: "Ветер - это движение воздуха"
         },
         {
             question: "Rain is...",
@@ -38,7 +40,9 @@ const questions = {
             ],
             instruction: 'Choose the right answer.',
             instructionRussian: 'Выбери правильный ответ.',
-            rightAnswerIndex: 2
+            rightAnswerIndex: 2,
+            hint: "Rain is water falling from the sky.",
+            hintRussian: "Дождь - это вода, падающая с неба."
         },
         {
             question: "Very strong and destructive winds is called...",
@@ -57,11 +61,13 @@ const questions = {
             ],
             instruction: 'Choose the right answer.',
             instructionRussian: 'Выбери правильный ответ.',
-            rightAnswerIndex: 3
+            rightAnswerIndex: 3,
+            hint: "Hurricane is a very strong and destructive wind.",
+            hintRussian: "Ураган - это очень сильный и разрушительный ветер."
         },
         {
-            question: "Bright flashes in the sky are...",
-            questionRussian: "Яркие вспышки на небе - это...",
+            question: "Bright flash in the sky is a...",
+            questionRussian: "Яркая вспышка на небе - это...",
             answers: [
                 "rain",
                 "thunder",
@@ -76,10 +82,12 @@ const questions = {
             ],
             instruction: 'Choose the right answer.',
             instructionRussian: 'Выбери правильный ответ.',
-            rightAnswerIndex: 2
+            rightAnswerIndex: 2,
+            hint: "Lightning is a bright flash the sky.",
+            hintRussian: "Молния - это яркая вспышка в небе."
         },
         {
-            question: "A strong rumble and crackling during a lightning strike is...",
+            question: "A strong rumble and crackling during a lightning strike is a...",
             questionRussian: "Сильный грохот и треск во время удара молнии - это...",
             answers: [
                 "thunder",
@@ -95,7 +103,9 @@ const questions = {
             ],
             instruction: 'Choose the right answer.',
             instructionRussian: 'Выбери правильный ответ.',
-            rightAnswerIndex: 0
+            rightAnswerIndex: 0,
+            hint: "Thunder is a strong rumble and crackling during a lightning strike.",
+            hintRussian: "Гром - это сильный грохот и треск во время удара молнии."
         }
     ],
     test1: [
@@ -115,13 +125,14 @@ const question = document.querySelector('#question');
 const answers = document.querySelector('#answers');
 const message = document.querySelector('#message');
 const instruction = document.querySelector('#instruction');
+const hint = document.querySelector('#hint');
+const hintText = document.querySelector('#hintText');
 const language = document.querySelector('#language');
 let chosenSection = null;
 let count = 0;
 let chosenAnswer = 0;
 let rightAnswerIsGiven = false;
 let chosenLanguage = 'English';
-
 
 const showSections = () => {
     let sectionNames = null;
@@ -175,12 +186,14 @@ const openExercise = (event) => {
             sectionTitle.textContent = chosenSection.toUpperCase();
             instruction.textContent = questions[chosenSection][count].instruction;
             question.textContent = questions[chosenSection][count].question;
+            hint.textContent = "Hint";
         } else if (chosenLanguage == 'Russian') {
             let pos = questionsArrRus.indexOf(event.target.textContent);
             chosenSection = questionsArr[pos];
             sectionTitle.textContent = questionsArrRus[pos].toUpperCase();
             instruction.textContent = questions[chosenSection][count].instructionRussian;
             question.textContent = questions[chosenSection][count].questionRussian;
+            hint.textContent = "Подсказка";
         }
 
         sections.className = 'hidden';
@@ -257,11 +270,14 @@ const changeQuestion = (event) => {
             if (chosenLanguage == 'English') {
                 instruction.textContent = questions[chosenSection][count].instruction;
                 question.textContent = questions[chosenSection][count].question;
+                hint.textContent = 'Hint';
             } else if (chosenLanguage == 'Russian') {
                 instruction.textContent = questions[chosenSection][count].instructionRussian;
                 question.textContent = questions[chosenSection][count].questionRussian;
+                hint.textContent = 'Подсказка';
             }
             
+            hintText.style.display = 'none';
             message.textContent = '';
             rightAnswerIsGiven = false;
             showPossibleAnswers();
@@ -270,7 +286,6 @@ const changeQuestion = (event) => {
         }
     } 
 }
-
 
 const returnToSections = () => {
     sections.className  = 'verticalContainer';
@@ -283,6 +298,8 @@ const returnToSections = () => {
     message.textContent = '';
     instruction.textContent = '';
     rightAnswerIsGiven = false;
+    hint.textContent = 'Hint';
+    hintText.style.display = 'none';
 }
 
 const changeLanguage = () => {
@@ -300,6 +317,30 @@ const changeLanguage = () => {
     }
 }
 
+const showHint = () => {
+    if (chosenLanguage == 'English') {
+        const words = questions[chosenSection][count].hint.split(' ');
+        if (hint.textContent == 'Hint') {
+            hint.textContent = 'Hide';
+            hintText.style.display = 'block';
+            hintText.innerHTML = `<span class='keyWord'>${words[0]}</span> ${questions[chosenSection][count].hint.slice(words[0].length)}`;
+        } else if (hint.textContent == 'Hide') {
+            hint.textContent = 'Hint';
+            hintText.style.display = 'none';
+        }
+    } else if (chosenLanguage == 'Russian') {
+        const words = questions[chosenSection][count].hintRussian.split(' ');
+        if (hint.textContent == 'Подсказка') {
+            hint.textContent = 'Спрятать';
+            hintText.style.display = 'block';
+            hintText.innerHTML = `<span class='keyWord'>${words[0]}</span> ${questions[chosenSection][count].hintRussian.slice(words[0].length)}`;
+        } else if (hint.textContent == 'Спрятать') {
+            hint.textContent = 'Подсказка';
+            hintText.style.display = 'none';
+        }
+    }
+}
+
 window.addEventListener('DOMContentLoaded', showSections);
 document.querySelector('#sections').addEventListener('click', openExercise);
 document.querySelector('#exitButton').addEventListener('click', returnToSections);
@@ -307,3 +348,4 @@ window.addEventListener('keydown', chooseAnswerWithArrows);
 window.addEventListener('keydown', checkAnswer);
 window.addEventListener('keydown', changeQuestion);
 document.querySelector('#language').addEventListener('click', changeLanguage);
+document.querySelector('#hint').addEventListener('click', showHint);

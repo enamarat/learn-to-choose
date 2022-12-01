@@ -91,6 +91,34 @@ h2 {
     color: darkblue;
 }
 
+#hint {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: green;
+    margin-top: 1em;
+    margin-bottom: 0.2em
+}
+
+#hint:hover {
+    cursor: pointer;
+    color: tomato;
+}
+
+#hintText {
+    display: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: black;
+    margin: 0.2em;
+    padding: 0.5em;
+    border: 2px solid black;
+}
+
+.keyWord {
+    color: red;
+    text-decoration: underline;
+}
+
 /* buttons */
 button {
     color: orange;
