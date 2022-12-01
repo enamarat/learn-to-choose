@@ -302,6 +302,12 @@ const returnToSections = () => {
     hintText.style.display = 'none';
 }
 
+const returnToSectionsWithKeyboard = (event) => {
+    if (event.key == 'Escape' && chosenSection != null) {
+        returnToSections();
+    } 
+}
+
 const changeLanguage = () => {
     if (chosenLanguage == 'English') {
         chosenLanguage = "Russian";
@@ -347,5 +353,6 @@ document.querySelector('#exitButton').addEventListener('click', returnToSections
 window.addEventListener('keydown', chooseAnswerWithArrows);
 window.addEventListener('keydown', checkAnswer);
 window.addEventListener('keydown', changeQuestion);
+window.addEventListener('keydown', returnToSectionsWithKeyboard);
 document.querySelector('#language').addEventListener('click', changeLanguage);
 document.querySelector('#hint').addEventListener('click', showHint);
