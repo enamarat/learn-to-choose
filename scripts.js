@@ -1,5 +1,5 @@
-const questionsArr = ['nature', 'horizon'];
-const questionsArrRus = ['природа', 'горизонт'];
+const questionsArr = ['categories', 'nature', 'horizon'];
+const questionsArrRus = ['категории', 'природа', 'горизонт'];
 const questions = {
     nature: [
         {   
@@ -173,6 +173,348 @@ const questions = {
             hintRussian: "Невозможно."
         }
     ],
+    categories: [
+        {
+            question: "A dog is...",
+            questionRussian: "Собака - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "transport"
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "транспорт"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 3,
+            hint: "Animal.",
+            hintRussian: "Животное."
+        },
+        {
+            question: "A plate is...",
+            questionRussian: "Тарелка - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "disehs",
+                "transport"
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 5,
+            hint: "Dishes.",
+            hintRussian: "Посуда."
+        },
+        {
+            question: "A boat is...",
+            questionRussian: "Лодка - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport"
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 6,
+            hint: "Transport.",
+            hintRussian: "Транспорт."
+        },
+        {
+            question: "A jacket is...",
+            questionRussian: "Куртка - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport"
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 4,
+            hint: "Clothes.",
+            hintRussian: "Одежда."
+        },
+        {
+            question: "A banana is...",
+            questionRussian: "Банан - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport",
+                "vegetable",
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт",
+                "овощ"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 2,
+            hint: "Fruit.",
+            hintRussian: "Фрукт."
+        },
+        {
+            question: "A bull is...",
+            questionRussian: "Бык - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport",
+                "vegetable",
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт",
+                "овощ"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 3,
+            hint: "Animal.",
+            hintRussian: "Животное."
+        },
+        {
+            question: "Bread is...",
+            questionRussian: "Хлеб - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport",
+                "vegetable",
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт",
+                "овощ"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 1,
+            hint: "Food.",
+            hintRussian: "Еда."
+        },
+        {
+            question: "A car is...",
+            questionRussian: "Машина - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport",
+                "vegetable",
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт",
+                "овощ"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 6,
+            hint: "Transport.",
+            hintRussian: "Транспорт."
+        },
+        {
+            question: "A table is...",
+            questionRussian: "Стол - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport",
+                "vegetable",
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт",
+                "овощ"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 0,
+            hint: "Furniture.",
+            hintRussian: "Мебель."
+        },
+        {
+            question: "A tomato is...",
+            questionRussian: "Помидор - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport",
+                "vegetable",
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт",
+                "овощ"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 7,
+            hint: "Vegetable.",
+            hintRussian: "Овощ."
+        },
+        {
+            question: "A t-shirt is...",
+            questionRussian: "Майка - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "transport",
+                "vegetable",
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "транспорт",
+                "овощ"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 4,
+            hint: "Clothes.",
+            hintRussian: "Одежда."
+        },
+        {
+            question: "Sneakers are...",
+            questionRussian: "Кроссовки - это...",
+            answers: [
+                "furniture",
+                "food",
+                "fruit",
+                "animal",
+                "clothes",
+                "dishes",
+                "shoes",
+                "transport",
+                "vegetable",
+            ],
+            answersRussian: [
+                "мебель",
+                "еда",
+                "фрукт",
+                "животное",
+                "одежда",
+                "посуда",
+                "обувь",
+                "транспорт",
+                "овощ"
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 6,
+            hint: "Shoes.",
+            hintRussian: "Обувь."
+        },
+    ]
 };
 const sections = document.querySelector('#sections');
 const exercise = document.querySelector('#exercise');
