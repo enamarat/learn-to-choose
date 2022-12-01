@@ -1,5 +1,5 @@
-const questionsArr = ['nature', 'test1', 'test2', 'test3'];
-const questionsArrRus = ['природа', 'тест1', 'тест2', 'тест3'];
+const questionsArr = ['nature', 'horizon'];
+const questionsArrRus = ['природа', 'горизонт'];
 const questions = {
     nature: [
         {   
@@ -108,15 +108,71 @@ const questions = {
             hintRussian: "Гром - это сильный грохот и треск во время удара молнии."
         }
     ],
-    test1: [
-        {}
+    horizon: [
+        {
+            question: "Horizon is a...",
+            questionRussian: "Горизонт - это...",
+            answers: [
+                "a view from a window",
+                "the sky",
+                "landscape",
+                "the entire earth's surface that we see in an open area"
+            ],
+            answersRussian: [
+                "вид из окна",
+                "небо",
+                "пейзаж",
+                "вся земная поверхность, которую мы видим на открытой местности",
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 3,
+            hint: "Horizon is the entire earth's surface that we see in an open area.",
+            hintRussian: "Горизонт - это вся земная поверхность, которую мы видим на открытой местности."
+        },
+        {
+            question: "Skyline is a...",
+            questionRussian: "Линия горизонта - это...",
+            answers: [
+                "land surface",
+                "a view from a window",
+                "the boundary of the horizon, where the sky converges with the earth's surface",
+                "the sky"
+            ],
+            answersRussian: [
+                "поверхность земли",
+                "вид из окна",
+                "граница горизонта, где небо сходится с земной поверхностью",
+                "небо",
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 2,
+            hint: "Boundary of the horizon, where the sky converges with the earth's surface.",
+            hintRussian: "Граница горизонта, где небо сходится с земной поверхностью."
+        },
+        {
+            question: "How can you get to the horizon line?",
+            questionRussian: "Как можно добраться до линии горизонта?",
+            answers: [
+                "by swimming",
+                "by walking",
+                "by driving",
+                "it is impossible"
+            ],
+            answersRussian: [
+                "вплавь",
+                "пешком",
+                "на машине",
+                "невозможно",
+            ],
+            instruction: 'Choose the right answer.',
+            instructionRussian: 'Выбери правильный ответ.',
+            rightAnswerIndex: 3,
+            hint: "Impossible.",
+            hintRussian: "Невозможно."
+        }
     ],
-    test2: [
-        {}
-    ],
-    test3: [
-        {}
-    ]
 };
 const sections = document.querySelector('#sections');
 const exercise = document.querySelector('#exercise');
