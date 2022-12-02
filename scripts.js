@@ -526,6 +526,7 @@ const instruction = document.querySelector('#instruction');
 const hint = document.querySelector('#hint');
 const hintText = document.querySelector('#hintText');
 const language = document.querySelector('#language');
+const explanationText = document.querySelector('#explanationText');
 let chosenSection = null;
 let count = 0;
 let chosenAnswer = 0;
@@ -541,8 +542,10 @@ const showSections = () => {
 
     if (chosenLanguage == 'English') {
         sectionNames = questionsArr;
+        explanationText.textContent = "Use arrow keys to navigate the options. Hit 'Enter' to choose the answer. Hit 'Space' to change the question.";
     } else if (chosenLanguage == 'Russian') {
         sectionNames = questionsArrRus;
+        explanationText.textContent = "Используйте клавиши стрелок, чтобы перемещаться между вариантами. Нажмите Enter, чтобы выбрать ответ. Нажмите Space, чтобы поменять вопрос.";
     }
 
     for (let i = 0; i < sectionNames.length; i+=2) {

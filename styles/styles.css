@@ -3,23 +3,6 @@ body {
     background-color: blanchedalmond;
 }
 
-header {
-    background-image: linear-gradient(burlywood, black);
-    margin-bottom: 0.2em;
-    position: relative;
-}
-
-#language {
-    position: absolute;
-    top: 5px;
-    left: 5px;
-}
-
-#language:hover {
-    cursor: pointer;
-    color: white;
-}
-
 main {
     text-align: center;
 }
@@ -47,6 +30,53 @@ main {
 #answers {
     display: flex;
     flex-direction: column;
+}
+
+/* header */
+header {
+    background-image: linear-gradient(burlywood, black);
+    margin-bottom: 0.2em;
+    position: relative;
+}
+
+#language {
+    position: absolute;
+    top: 5px;
+    left: 10px;
+}
+
+#questionMark {
+    font-size: 2em;
+}
+
+#explanation {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+}
+
+#language:hover, #questionMark:hover {
+    cursor: pointer;
+    color: white;
+}
+
+#explanationDescription {
+    display: none;
+    color: white;
+    background-color: brown;
+    padding: 5px;
+    width: 300px;
+    position: absolute;
+    top: 0;
+    right: 10px;
+}
+
+#explanationDescription p{
+    font-size: 1.25em;
+}
+
+#explanation:hover > #explanationDescription {
+    display: block;
 }
 
 /* typography */
