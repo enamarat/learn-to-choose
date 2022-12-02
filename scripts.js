@@ -533,6 +533,7 @@ let chosenAnswer = 0;
 let rightAnswerIsGiven = false;
 let chosenLanguage = 'English';
 
+
 const showSections = () => {
     let sectionNames = null;
     const rememberedLanguage = JSON.parse(localStorage.getItem('language'));
@@ -547,7 +548,7 @@ const showSections = () => {
         sectionNames = questionsArrRus;
         explanationText.textContent = "Используйте клавиши стрелок, чтобы перемещаться между вариантами. Нажмите Enter, чтобы выбрать ответ. Нажмите Space, чтобы поменять вопрос.";
     }
-console.log(chosenLanguage, sectionNames, rememberedLanguage);
+
     for (let i = 0; i < sectionNames.length; i+=2) {
         if (i+1 < sectionNames.length) {
             sections.innerHTML += `
