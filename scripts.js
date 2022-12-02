@@ -754,7 +754,7 @@ const showHint = () => {
     }
 }
 
-window.addEventListener('DOMContentLoaded', showSections);
+window.addEventListener('load', showSections);
 document.querySelector('#sections').addEventListener('click', openExercise);
 document.querySelector('#exitButton').addEventListener('click', returnToSections);
 window.addEventListener('keydown', chooseAnswerWithArrows);
