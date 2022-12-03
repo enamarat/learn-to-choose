@@ -536,7 +536,7 @@ let chosenLanguage = 'English';
 
 const showSections = () => {
     let sectionNames = null;
-    const rememberedLanguage = JSON.parse(localStorage.getItem('language'));
+    const rememberedLanguage = JSON.parse(localStorage.getItem('languageRem'));
     if (rememberedLanguage != null) {
         chosenLanguage = rememberedLanguage;
     }
@@ -723,7 +723,7 @@ const changeLanguage = () => {
         chosenLanguage = "English";
         language.textContent = 'Rus';
     }
-    localStorage.setItem(`language`, JSON.stringify(chosenLanguage));
+    localStorage.setItem(`languageRem`, JSON.stringify(chosenLanguage));
 
     if (chosenSection == null) {
         sections.innerHTML = '';
